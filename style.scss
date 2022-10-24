@@ -1,0 +1,144 @@
+$paleBlue: hsl(225, 100%, 94%);
+$brightBlue: hsl(245, 75%, 52%);
+$veryPaleBlue: hsl(225, 100%, 98%);
+$desaturatedBlue: hsl(224, 23%, 55%);
+$darkBlue: hsl(223, 47%, 23%);
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Red Hat Display', sans-serif;
+	height: 100vh;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: $paleBlue;
+}
+.background {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+}
+.card {
+	display: flex;
+	flex-direction: column;
+	width: 340px;
+	height: 550px;
+	text-align: center;
+	background-color: #fff;
+	border-radius: 1em;
+	overflow: hidden;
+
+	&__img {
+		flex-basis: 30%;
+		position: relative;
+		overflow: hidden;
+
+		svg {
+			position: absolute;
+			transform: scale(0.76);
+			transform-origin: top left;
+			top: 0;
+			left: 0;
+		}
+	}
+
+	&__text {
+		flex-basis: 30%;
+		margin: 1em 2em;
+		padding-top: 1.2em;
+
+		h2 {
+			font-weight: 900;
+			margin-bottom: 0.8em;
+		}
+		p {
+			color: $desaturatedBlue;
+		}
+	}
+
+	&__plan {
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		flex-basis: 13%;
+		background-color: $veryPaleBlue;
+		margin: 0 1em;
+		padding: 1em 0;
+		border-radius: 0.7em;
+	}
+
+	&__details {
+		h4 {
+			margin-bottom: 0.2em;
+			font-weight: 700;
+		}
+		p {
+			color: $desaturatedBlue;
+		}
+	}
+	&__change {
+		text-decoration: underline;
+		font-weight: 700;
+		color: $brightBlue;
+	}
+	&__buttons {
+		flex-basis: 30%;
+		padding-top: 1em;
+		margin: 0 1em;
+	}
+	&__button {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		height: 40%;
+		font-weight: 700;
+		margin-bottom: 0.5em;
+		background-color: $brightBlue;
+		color: #fff;
+		border-radius: 1em;
+
+		&-white {
+			background-color: #fff;
+			color: $desaturatedBlue;
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.background {
+		display: block;
+	}
+
+	.card {
+		&__change {
+			transition: 0.3s;
+
+			&:hover {
+				cursor: pointer;
+				color: rgba(80, 73, 179, 0.911);
+				text-decoration: none;
+			}
+		}
+		&__button {
+			transition: 0.3s;
+
+			&:hover {
+				cursor: pointer;
+				background-color: rgba(80, 73, 179, 0.911);
+			}
+			&-white:hover {
+				background-color: #fff;
+				color: $darkBlue;
+			}
+		}
+	}
+}
